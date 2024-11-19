@@ -1,5 +1,154 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #bdbdbd;
+}
+
+header {
+  background-color: #bdbdbd;
+  margin: 30px auto 10px;
+  width: 80vw;
+  padding: 20px;
+  border-radius: 16px;
+}
+
+header h2 {
+  font-size: 24px;
+  font-weight: 700;
+  font-family: cursive;
+  text-align: center;
+}
+
+main {
+  height: 500px;
+  width: 80vw;
+  margin: 20px auto 0;
+  display: flex;
+  flex-direction: row;
+  column-gap: 20px;
+}
+
+form {
+  background-color: #bdbdbd;
+  width: 500px;
+  height: fit-content;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 0 14px rgba(0, 0, 0, 0.2);
+}
+
+aside {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /*cada 1fr significa 1 fracionario ou 1 coluna*/ 
+  gap: 20px;
+}
+
+form h2 {
+  font-size: 25px;
+  font-weight: bold;
+  font-family: cursive;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+form .input-data {
+  display: flex;
+  flex-direction: column;
+  row-gap: 3px;
+  margin-bottom: 20px;
+}
+
+
+form .input-data label {
+  color: #333333;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+form .input-data input {
+  height: 48px;
+  font-size: 14px;
+  color: #666666;
+  border-radius: 8px;
+  outline: none;
+  border: 2px solid #999999;
+  background-color: #f0f0f0;
+  padding: 0 10px;
+}
+
+form button{
+  width: 100%;
+  background-color: #658545;
+  color: whitesmoke;
+  font-size: 35px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+form button:hover{
+  background-color: #3f552a;
+}
+
+.card{
+  background-color: #658545;
+border-radius: 20px;
+
+height: fit-content; /* se ajusta ao conteudo*/
+display: flex;
+flex-direction: column;
+}
+
+.card img{
+width: 100%;
+border-top-left-radius: 10px;
+border-top-right-radius: 10px;
+}
+
+.card .dados{
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+}
+
+.card .dados strong{
+  font-size: 20px;
+  font-family: cursive;
+  font-weight: bold;
+}
+
+.card .dados span{
+  font-family: cursive;
+  font-size: 20px;
+}
+
+.card .botao-card{
+  display: flex;
+  flex-direction: row;
+}
+
+.card .botao-card button{
+  flex: 1;
+  
+  border: none;
+  cursor: pointer;
+  color: whitesmoke;
+}
+
+#botao-ver{
+background-color: chartreuse;
+border-bottom-left-radius: 16px;
+}
+
+#botao-deletar{
+background-color: red;
+border-bottom-right-radius: 16px;
+}
