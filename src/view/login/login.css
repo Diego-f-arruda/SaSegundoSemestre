@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: #bdbdbd;
+    background-color: #686A6C;
 }
 
 main {
@@ -15,7 +15,7 @@ main {
     padding: 40px;
     width: 80%;
     margin: 150px auto;
-    background-color: #a1a1a1;
+    background-color: #313131;
     border-radius: 10px;
 }
 
@@ -24,14 +24,14 @@ main {
 }
 
 .login {
-    border-right: 2px solid #658545;
+    border-right: 2px solid #9B111E;
 }
 
 h1 {
     font-size: 30px;
-    font-family: cursive;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: bold;
-    color: #658545;
+    color: #9B111E;
     margin-bottom: 20px;
 }
 
@@ -46,19 +46,20 @@ h1 {
     padding: 12px 16px;
     border-radius: 10px;
     font-size: 16px;
-    border: 1px solid #658545
+    border: 1px solid #9B111E
 }
 
 .grupo-campos button {
     padding: 14px;
     border-radius: 10px;
     border: none;
-    color: #658545;
+    color: #9B111E;
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
 } 
 
 .grupo-campos button:hover {
-    background-color: #658545;
+    background-color: #9B111E;
+    color: #FFFFFF
 }
