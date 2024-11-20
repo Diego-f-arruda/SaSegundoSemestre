@@ -9,7 +9,7 @@ export default class VeiculoRepository {
             this.connection = new Client({
                 host: 'localhost',
                 port: 5432,
-                database: 'revenda',
+                database: 'SA',
                 user: 'postgres',
                 password: 'senai'
             })
