@@ -9,15 +9,15 @@ CREATE TABLE estoque (
     data_entrada DATE NOT NULL,
     data_saida DATE NOT NULL,
     custo DECIMAL NOT NULL,
-    status BOOLEAN NOT NULL,
+    status BOOLEAN NOT NULL
 );
 
-CREATE TABLE producao (
+CREATE TABLE veiculo_estoque (
     id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
     id_veiculo UUID NOT NULL,
     id_estoque UUID NOT NULL,
     FOREIGN KEY (id_veiculo) REFERENCES veiculo(id) ON DELETE CASCADE,
-    FOREIGN KEY (id_estoque) REFERENCES estoque(id) ON DELETE CASCADE,
+    FOREIGN KEY (id_estoque) REFERENCES estoque(id) ON DELETE CASCADE
 );
 
 CREATE TABLE veiculo (
@@ -27,6 +27,6 @@ CREATE TABLE veiculo (
     cambio VARCHAR(30) NOT NULL,
     bancos VARCHAR(30) NOT NULL,
     rodas VARCHAR(30) NOT NULL,
-    cor VARCHAR(30) NOT NULL,
+    cor VARCHAR(30) NOT NULL
 );
 
