@@ -20,8 +20,8 @@ export default class VeiculoRepository {
 
         try {
             await this.connection.connect()
-            const sql = "INSERT INTO veiculos (id, modelo, cor, ano, valor, placa, imagem) VALUES ($1, $2, $3, $4, $5, $6, $7)";
-            const values = [veiculo.getId(), veiculo.getModelo(), veiculo.getCor(), veiculo.getAno(), veiculo.getPreco(), veiculo.getPlaca(), veiculo.getImagem()];
+            const sql = "INSERT INTO veiculo (id, motor, cor, cambio, chassi, bancos, rodas) VALUES ($1, $2, $3, $4, $5, $6, $7)";
+            const values = [veiculo.getId(), veiculo.getMotor(), veiculo.getCor(), veiculo.getCambio(), veiculo.getChassi(), veiculo.getBancos(), veiculo.getRodas()];
             await this.connection.query(sql, values);            
         } catch (error) {
             console.log(error)
@@ -34,7 +34,7 @@ export default class VeiculoRepository {
     async findAll(){
         try {
             this.connection.connect();
-            const sql = "SELECT * FROM veiculos WHERE esta_ativo = $1"
+            const sql = "SELECT * FROM veiculo WHERE esta_ativo = $1"
             const result = await this.connection.query(sql, [true]);
             if(result.rows.length > 0){
                 return result.rows;
@@ -54,7 +54,7 @@ export default class VeiculoRepository {
     async findById(id: string){
         try {
             await this.connection.connect();
-            const sql = "SELECT * FROM veiculos WHERE id = $1"
+            const sql = "SELECT * FROM veiculo WHERE id = $1"
             // const values = [id];
             const result = await this.connection.query(sql, [id]);
             return result.rows[0];

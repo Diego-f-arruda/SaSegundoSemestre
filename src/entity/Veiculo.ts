@@ -2,48 +2,48 @@ import { v4 as uuid } from "uuid";
 
 export default class Veiculo {
     private id: string;
-    private modelo: string;
+    private motor: string;
     private cor: string;
-    private ano: number;
-    private preco: number;
-    private placa: string;
-    private imagem: string
+    private cambio: string;
+    private chassi: string;
+    private bancos: string;
+    private rodas: string
 
-    constructor(modelo: string, cor: string, ano: number, preco: number, placa: string, imagem: string, id?:string){
+    constructor(motor: string, cor: string, cambio: string, chassi: string, bancos: string, rodas: string, id?:string){
         this.id = id === undefined ? uuid() : id;  // dessa forma ja valida se ja foi feito um id 
-        this.modelo = modelo;
+        this.motor = motor;
         this.cor = cor;
-        this.ano = ano;
-        this.preco = preco;
-        this.placa = placa;
-        this.imagem = imagem;
+        this.cambio = cambio;
+        this.chassi = chassi;
+        this.bancos = bancos;
+        this.rodas = rodas;
     }
     public getId(){
         return this.id;
     }
 
-    public getModelo(){
-        return this.modelo;
+    public getMotor(){
+        return this.motor;
     }
 
     public getCor(){
         return this.cor;
     }
 
-    public getAno(){
-        return this.ano;
+    public getCambio(){
+        return this.cambio;
     }
 
-    public getPreco(){
-        return this.preco;
+    public getChassi(){
+        return this.chassi;
     }
 
-    public getPlaca(){
-        return this.placa;
+    public getBancos(){
+        return this.bancos;
     }
 
-    public getImagem(){
-        return this.imagem;
+    public getRodas(){
+        return this.rodas;
     }
 
 }
