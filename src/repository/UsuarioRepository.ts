@@ -19,15 +19,13 @@ export default class UsuarioRepository {
     async save(usuario: Usuario){
         try {
             this.connection.connect()
-            const sql = "INSERT INTO usuario (id, nome, email, password_hash, data_nascimento, criado_em, atualizado_em) VALUES ($1, $2, $3, $4, $5, $6, $7)";
+            const sql = "INSERT INTO usuario (id, nome, email, password_hash, data_nascimento) VALUES ($1, $2, $3, $4, $5)";
             const values = [
                 usuario.getId(),
                 usuario.getName(),
                 usuario.getEmail(),
                 usuario.getPassword(),
                 usuario.getDataNascimento(),
-                usuario.getCriadoEm(),
-                usuario.getAtualizadoEm()
             ];
             await this.connection.query(sql, values);
         } catch (error) {
