@@ -30,3 +30,10 @@ CREATE TABLE veiculo (
     cor VARCHAR(30) NOT NULL
 );
 
+CREATE TABLE usuario (
+	id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+	nome VARCHAR NOT NULL,
+	data_nascimento DATE NOT NULL,
+	email VARCHAR UNIQUE NOT NULL,
+	password VARCHAR NOT NULL
+)
