@@ -23,8 +23,8 @@ CREATE TABLE veiculo_estoque (
 CREATE TABLE veiculo (
     id UUID DEFAULT gen_random_uuid() PRIMARY KEY, 
 	motor VARCHAR(30) NOT NULL,
-    chassi VARCHAR UNIQUE NOT NULL,
     cambio VARCHAR(30) NOT NULL,
+    qtd_portas VARCHAR(30) NOT NULL,
     bancos VARCHAR(30) NOT NULL,
     rodas VARCHAR(30) NOT NULL,
     cor VARCHAR(30) NOT NULL
