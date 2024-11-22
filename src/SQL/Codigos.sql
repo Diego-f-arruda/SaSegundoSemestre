@@ -35,5 +35,5 @@ CREATE TABLE usuario (
 	nome VARCHAR NOT NULL,
 	data_nascimento DATE NOT NULL,
 	email VARCHAR UNIQUE NOT NULL,
-	password VARCHAR NOT NULL
+	password_hash VARCHAR NOT NULL
 )
