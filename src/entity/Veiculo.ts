@@ -5,7 +5,7 @@ export default class Veiculo {
     private motor: string;
     private cor: string;
     private cambio: string;
-    private chassi: string;
+    private qtd_portas: string;
     private bancos: string;
     private rodas: string
 
@@ -14,7 +14,7 @@ export default class Veiculo {
         this.motor = motor;
         this.cor = cor;
         this.cambio = cambio;
-        this.chassi = chassi;
+        this.qtd_portas = qtd_portas;
         this.bancos = bancos;
         this.rodas = rodas;
     }
@@ -34,8 +34,8 @@ export default class Veiculo {
         return this.cambio;
     }
 
-    public getChassi(){
-        return this.chassi;
+    public getQtd_portas(){
+        return this.qtd_portas;
     }
 
     public getBancos(){

@@ -60,8 +60,8 @@ app.on('activate', () => {
 
 ipcMain.handle('create', async (event: any, veiculo: any) => {
   console.log(veiculo)
-  const {id, modelo, cor, ano, preco, placa, imagem} = veiculo;
-  const novoVeiculo = new Veiculo(modelo, cor, ano, preco, placa, imagem, id);
+  const {id, motor, cor, cambio, qtd_portas, bancos, rodas} = veiculo;
+  const novoVeiculo = new Veiculo(motor, cor, cambio, qtd_portas, bancos, rodas, id);
   await new VeiculoRepository().save(novoVeiculo);  //cria e ja usa
 
 })
