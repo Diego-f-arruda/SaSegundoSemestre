@@ -69,7 +69,7 @@ export default class VeiculoRepository {
     async delete(id: string){
         try {
             await this.connection.connect();
-            const sql = "UPDATE veiculos SET esta_ativo = $1 WHERE id = $2"
+            const sql = "UPDATE veiculo SET esta_ativo = $1 WHERE id = $2"
             await this.connection.query(sql, [false, id]);
             
         } catch (error) {

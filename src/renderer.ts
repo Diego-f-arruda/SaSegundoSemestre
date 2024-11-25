@@ -9,26 +9,26 @@ let listaVeiculos:Veiculo[] = [];
 document.getElementById("botao-cadastrar")?.addEventListener("click", async (event: MouseEvent) => {
     event.preventDefault();
 
-    let modelo = document.getElementById('modelo') as HTMLInputElement;
+    let motor = document.getElementById('motor') as HTMLInputElement;
     let cor = document.getElementById('cor') as HTMLInputElement;
-    let ano = document.getElementById('ano') as HTMLInputElement;
-    let preco = document.getElementById('preco') as HTMLInputElement;
-    let placa = document.getElementById('placa') as HTMLInputElement;
-    let imagem = document.getElementById('imagem') as HTMLInputElement;
+    let cambio = document.getElementById('cambio') as HTMLInputElement;
+    let chassi = document.getElementById('chassi') as HTMLInputElement;
+    let bancos = document.getElementById('bancos') as HTMLInputElement;
+    let rodas = document.getElementById('rodas') as HTMLInputElement;
 
 
-    const novoCarro = new Veiculo(modelo.value, cor.value, Number(ano.value), Number(preco.value), placa.value, imagem.value);
+    const novoCarro = new Veiculo(motor.value, cor.value, cambio.value, chassi.value, bancos.value, rodas.value);
 
     listaVeiculos.push(novoCarro);
     (window as any).bancoAPI.createVeiculo(novoCarro); 
 
 
-    modelo.value = "";
+    motor.value = "";
     cor.value = "";
-    ano.value = "";
-    preco.value = "";
-    placa.value = "";
-    imagem.value = "";
+    cambio.value = "";
+    chassi.value = "";
+    bancos.value = "";
+    rodas.value = "";
 
     //render abaixo
     render()
@@ -47,12 +47,12 @@ window.onload = async () => {
   const veiculos = await (window as any).bancoAPI.findAll();
   for(var i = 0; i < veiculos.length; i++){
       const veiculo = new Veiculo(
-          veiculos[i].modelo, 
+          veiculos[i].motor, 
           veiculos[i].cor,
-          veiculos[i].ano,
+          veiculos[i].cambio,
           veiculos[i].valor,
-          veiculos[i].placa,
-          veiculos[i].imagem,
+          veiculos[i].bancos,
+          veiculos[i].rodas,
           veiculos[i].id
       );
 
@@ -70,13 +70,13 @@ export default function render(){
   for (var i = 0; i < listaVeiculos.length; i++) {
       aside.innerHTML += `
       <div class="card">
-      <img src="${listaVeiculos[i].getImagem()}" alt="">
+      <img src="${listaVeiculos[i].getRodas()}" alt="">
       <div class="dados">
-        <strong>${listaVeiculos[i].getModelo()}</strong>
+        <strong>${listaVeiculos[i].getMotor()}</strong>
         <span>cor: ${listaVeiculos[i].getCor()}</span>
-        <span>Ano: ${listaVeiculos[i].getAno()}</span>
-        <span>Preço: R$${listaVeiculos[i].getPreco()}</span>
-        <span>Placa: ${listaVeiculos[i].getPlaca()}</span>
+        <span>cambio: ${listaVeiculos[i].getCambio()}</span>
+        <span>Preço: R$${listaVeiculos[i].getChassi()}</span>
+        <span>bancos: ${listaVeiculos[i].getBancos()}</span>
       </div>
       <div class="botao-card">
         <button id="botao-ver" onclick="paginaDetalhes('${listaVeiculos[i].getId()}')">Ver</button>
