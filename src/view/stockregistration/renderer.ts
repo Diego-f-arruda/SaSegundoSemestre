@@ -1,4 +1,4 @@
-import Veiculo from './entity/Veiculo';
+import Veiculo from '../../entity/Veiculo';
 import './index.css';
 
 
