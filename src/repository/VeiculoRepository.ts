@@ -20,7 +20,7 @@ export default class VeiculoRepository {
 
         try {
             await this.connection.connect()
-            const sql = "INSERT INTO veiculo (id, motor, cor, cambio, chassi, bancos, rodas) VALUES ($1, $2, $3, $4, $5, $6, $7)";
+            const sql = "INSERT INTO veiculo (id, motor, cor, cambio, qtd_portas, bancos, rodas) VALUES ($1, $2, $3, $4, $5, $6, $7)";
             const values = [veiculo.getId(), veiculo.getMotor(), veiculo.getCor(), veiculo.getCambio(), veiculo.getQtd_portas(), veiculo.getBancos(), veiculo.getRodas()];
             await this.connection.query(sql, values);            
         } catch (error) {

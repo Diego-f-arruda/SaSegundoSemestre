@@ -75,7 +75,7 @@ export default function render(){
         <strong>${listaVeiculos[i].getMotor()}</strong>
         <span>cor: ${listaVeiculos[i].getCor()}</span>
         <span>cambio: ${listaVeiculos[i].getCambio()}</span>
-        <span>Preço: R$${listaVeiculos[i].getChassi()}</span>
+        <span>Preço: R$${listaVeiculos[i].getQtd_portas()}</span>
         <span>bancos: ${listaVeiculos[i].getBancos()}</span>
       </div>
       <div class="botao-card">
