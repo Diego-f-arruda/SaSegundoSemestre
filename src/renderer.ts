@@ -12,12 +12,12 @@ document.getElementById("botao-cadastrar")?.addEventListener("click", async (eve
     let motor = document.getElementById('motor') as HTMLInputElement;
     let cor = document.getElementById('cor') as HTMLInputElement;
     let cambio = document.getElementById('cambio') as HTMLInputElement;
-    let chassi = document.getElementById('chassi') as HTMLInputElement;
+    let qtd_portas = document.getElementById('qtd_portas') as HTMLInputElement;
     let bancos = document.getElementById('bancos') as HTMLInputElement;
     let rodas = document.getElementById('rodas') as HTMLInputElement;
 
 
-    const novoCarro = new Veiculo(motor.value, cor.value, cambio.value, chassi.value, bancos.value, rodas.value);
+    const novoCarro = new Veiculo(motor.value, cor.value, cambio.value, qtd_portas.value, bancos.value, rodas.value);
 
     listaVeiculos.push(novoCarro);
     (window as any).bancoAPI.createVeiculo(novoCarro); 
@@ -26,7 +26,7 @@ document.getElementById("botao-cadastrar")?.addEventListener("click", async (eve
     motor.value = "";
     cor.value = "";
     cambio.value = "";
-    chassi.value = "";
+    qtd_portas.value = "";
     bancos.value = "";
     rodas.value = "";
 
@@ -50,7 +50,7 @@ window.onload = async () => {
           veiculos[i].motor, 
           veiculos[i].cor,
           veiculos[i].cambio,
-          veiculos[i].valor,
+          veiculos[i].qtd_portas,
           veiculos[i].bancos,
           veiculos[i].rodas,
           veiculos[i].id
@@ -75,7 +75,7 @@ export default function render(){
         <strong>${listaVeiculos[i].getMotor()}</strong>
         <span>cor: ${listaVeiculos[i].getCor()}</span>
         <span>cambio: ${listaVeiculos[i].getCambio()}</span>
-        <span>Preço: R$${listaVeiculos[i].getQtd_portas()}</span>
+        <span>qtd_portas: R$${listaVeiculos[i].getQtd_portas()}</span>
         <span>bancos: ${listaVeiculos[i].getBancos()}</span>
       </div>
       <div class="botao-card">
