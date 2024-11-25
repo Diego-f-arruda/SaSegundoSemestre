@@ -9,7 +9,7 @@ export default class Veiculo {
     private bancos: string;
     private rodas: string
 
-    constructor(motor: string, cor: string, cambio: string, chassi: string, bancos: string, rodas: string, id?:string){
+    constructor(motor: string, cor: string, cambio: string, qtd_portas: string, bancos: string, rodas: string, id?:string){
         this.id = id === undefined ? uuid() : id;  // dessa forma ja valida se ja foi feito um id 
         this.motor = motor;
         this.cor = cor;
