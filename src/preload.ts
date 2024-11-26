@@ -11,7 +11,7 @@ contextBridge.exposeInMainWorld('bancoAPI', {
 } )
 
 contextBridge.exposeInMainWorld('navegacaoAPI', {
-    stocRegistration: (id: string) => ipcRenderer.send("stockRegistration", id),
+    stocRegistration: (id: string) => ipcRenderer.send("stockregistration", id),
     paginaHome: () => ipcRenderer.send("homescreen")
 })
 
