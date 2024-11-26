@@ -26,21 +26,29 @@ const config: ForgeConfig = {
         config: rendererConfig,
         entryPoints: [
           {
-            html: './src/index.html',
-            js: './src/renderer.ts',
-            name: 'main_window',
+            html: './src/view/homescreen/index.html',
+            js: './src/view/homescreen/renderer.ts',
+            name: 'homescreen',
+            preload: {
+              js: './src/preload.ts',
+            },
+          },                    
+          {
+            html: './src/view/production/index.html',
+            js: './src/view/production/renderer.ts',
+            name: 'production',
             preload: {
               js: './src/preload.ts',
             },
           },
           {
-            html: './src/detalhes.html',
-            js: './src/detalhes.ts',
-            name: 'detalhes',
+            html: './src/view/stockregistration/index.html',
+            js: './src/view/stockregistration/renderer.ts',
+            name: 'stockregistration',
             preload: {
               js: './src/preload.ts',
             },
-          },
+          },        
           {
             html: './src/view/login/login.html',
             js: './src/view/login/renderer.ts',
