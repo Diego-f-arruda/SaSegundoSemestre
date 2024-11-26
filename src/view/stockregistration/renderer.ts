@@ -79,7 +79,7 @@ export default function render(){
         <span>bancos: ${listaVeiculos[i].getBancos()}</span>
       </div>
       <div class="botao-card">
-        <button id="botao-ver" onclick="paginaDetalhes('${listaVeiculos[i].getId()}')">Ver</button>
+        <button id="botao-ver" onclick="stockRegistration('${listaVeiculos[i].getId()}')">Ver</button>
         <button id="botao-deletar" onclick="deletarVeiculo('${listaVeiculos[i].getId()}')">Deletar</button>
       </div>
     </div>
@@ -101,10 +101,10 @@ function deletarVeiculo(id: string){
   render();
 }
 
-function paginaDetalhes(id: string){
-  (window as any).navegacaoAPI.paginaDetalhes(id);
+function stockRegistration(id: string){
+  (window as any).navegacaoAPI.stockRegistration(id);
 
 }
 
-(window as any).paginaDetalhes = paginaDetalhes;
+(window as any).stockRegistration = stockRegistration;
 (window as any).deletarVeiculo = deletarVeiculo;
