@@ -59,7 +59,7 @@ document.getElementById("acessar").addEventListener("click", async (event: Mouse
     return;
 
   }
-  
-  (window as any).navegacaoAPI.stockRegistration();
+
+  (window as any).navegacaoAPI.paginaHome();
 
 })

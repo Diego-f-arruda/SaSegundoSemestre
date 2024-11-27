@@ -11,10 +11,14 @@ contextBridge.exposeInMainWorld('bancoAPI', {
 } )
 
 contextBridge.exposeInMainWorld('navegacaoAPI', {
-    stockRegistration: (id: string) => ipcRenderer.send("stockregistration", id),
-    paginaHome: () => ipcRenderer.send("homescreen")
+    //navegarPara: (id: string) => ipcRenderer.send("navegarPara", id),
+    //navegarPara: (page: string) => ipcRenderer.send('navegar', page),
+    paginaHome: () => ipcRenderer.send("homescreen"),
+    stockRegistration: () => ipcRenderer.send("stockregistration"),
+    production: () => ipcRenderer.send("production")
 })
 
 contextBridge.exposeInMainWorld('authAPI', {
     hash: async (credentials: any) => await ipcRenderer.invoke("hash_password", credentials),
 })
+

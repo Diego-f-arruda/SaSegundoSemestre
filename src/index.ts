@@ -10,6 +10,7 @@ import { compare, hash } from 'bcrypt';
 declare const HOMESCREEN_WEBPACK_ENTRY: string;
 declare const HOMESCREEN_PRELOAD_WEBPACK_ENTRY: string;
 declare const STOCKREGISTRATION_WEBPACK_ENTRY: string;
+declare const PRODUCTION_WEBPACK_ENTRY: string;
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
@@ -33,7 +34,7 @@ const createWindow = (): void => {
   mainWindow.loadURL("http://localhost:3000/login");
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools();
+  //mainWindow.webContents.openDevTools();
 };
 
 // This method will be called when Electron has finished
@@ -96,11 +97,15 @@ ipcMain.handle('hash_password', async (_: any, credentials: any) => {
 
 })
 
-ipcMain.on("stockRegistration", (_:any, id: string) =>{
-  mainWindow.loadURL(STOCKREGISTRATION_WEBPACK_ENTRY + `?id=${id}`)
+ipcMain.on("stockregistration", (_:any, id: string) =>{
+  mainWindow.loadURL(STOCKREGISTRATION_WEBPACK_ENTRY)
 })
 
-ipcMain.on("trocaParaPrincipal", () =>{
+ipcMain.on("homescreen", () =>{
   mainWindow.loadURL(HOMESCREEN_WEBPACK_ENTRY)
+})
+
+ipcMain.on("production", () => {
+  mainWindow.loadURL(PRODUCTION_WEBPACK_ENTRY);
 })
 

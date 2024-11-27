@@ -34,6 +34,13 @@ document.getElementById("botao-cadastrar")?.addEventListener("click", async (eve
     render()
 })
 
+document.getElementById("botao-voltar").addEventListener("click", async (event: MouseEvent) => {
+  event.preventDefault();
+  console.log("teste1");
+  (window as any).navegacaoAPI.paginaHome();
+  console.log("teste2")
+})
+
 
 
 document.getElementById("botao-deletar")?.addEventListener("click", async (event:MouseEvent) => {
