@@ -1,5 +1,5 @@
 import { Client } from "pg";
-import Usuario from "src/entity/Usuario";
+import Usuario from "../entity/Usuario";
 
 export default class UsuarioRepository {
     private connection: Client
@@ -8,7 +8,8 @@ export default class UsuarioRepository {
         if(!this.connection){
             this.connection = new Client({
                 host: "localhost",
-                port: 5432,
+                //port: 5432,
+                port: 5433,
                 database: 'SA',
                 user: 'postgres',
                 password: 'senai'

@@ -1,5 +1,5 @@
 import { Client } from "pg";
-import Veiculo from "src/entity/Veiculo";
+import Veiculo from "../entity/Veiculo";
 
 export default class VeiculoRepository {
     private connection: Client
@@ -8,7 +8,8 @@ export default class VeiculoRepository {
         if(!this.connection){
             this.connection = new Client({
                 host: 'localhost',
-                port: 5432,
+                //port: 5432,
+                port: 5433,
                 database: 'SA',
                 user: 'postgres',
                 password: 'senai'

@@ -33,7 +33,7 @@ const createWindow = (): void => {
   mainWindow.loadURL("http://localhost:3000/login");
 
   // Open the DevTools.
-  // mainWindow.webContents.openDevTools();
+  mainWindow.webContents.openDevTools();
 };
 
 // This method will be called when Electron has finished

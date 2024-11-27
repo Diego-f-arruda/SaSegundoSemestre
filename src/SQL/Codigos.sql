@@ -1,6 +1,8 @@
 CREATE DATABASE SA;
 
-CREATE EXTENSION IF NOT EXISTS "pgcrypto"
+USING SA;
+
+CREATE EXTENSION IF NOT EXISTS "pgcrypto";
 
 CREATE TABLE estoque (
     id UUID DEFAULT gen_random_uuid() PRIMARY KEY, 
@@ -12,13 +14,6 @@ CREATE TABLE estoque (
     status BOOLEAN NOT NULL
 );
 
-CREATE TABLE veiculo_estoque (
-    id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
-    id_veiculo UUID NOT NULL,
-    id_estoque UUID NOT NULL,
-    FOREIGN KEY (id_veiculo) REFERENCES veiculo(id) ON DELETE CASCADE,
-    FOREIGN KEY (id_estoque) REFERENCES estoque(id) ON DELETE CASCADE
-);
 
 CREATE TABLE veiculo (
     id UUID DEFAULT gen_random_uuid() PRIMARY KEY, 
@@ -30,10 +25,18 @@ CREATE TABLE veiculo (
     cor VARCHAR(30) NOT NULL
 );
 
+CREATE TABLE veiculo_estoque (
+    id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+    id_veiculo UUID NOT NULL,
+    id_estoque UUID NOT NULL,
+    FOREIGN KEY (id_veiculo) REFERENCES veiculo(id) ON DELETE CASCADE,
+    FOREIGN KEY (id_estoque) REFERENCES estoque(id) ON DELETE CASCADE
+);
+
 CREATE TABLE usuario (
 	id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
 	nome VARCHAR NOT NULL,
 	data_nascimento DATE NOT NULL,
 	email VARCHAR UNIQUE NOT NULL,
 	password_hash VARCHAR NOT NULL
-)
+);
