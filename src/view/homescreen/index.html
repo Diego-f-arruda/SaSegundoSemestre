@@ -1,17 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pagina Inicial</title>
-</head>
-<body>
-  <div>
-<button id="botao-producao">teste1</button>
-  </div>
-  <div>
-    <button id="botao-registro">teste2</button>
-  </div>
-  
-</body>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Estoque</title>
+<link rel="stylesheet" href="index.css">
+  </head>
+  <body>
+    <h2>Cadastro de Estoque</h2>
+    <header>
+      
+      <div class="input-option">
+        <button id="botao-producao">>Produção</button>
+      </div>
+
+      <div class="input-option">
+        <button id="botao-home">Tela Inicial</button>
+      </div>
+
+      <div class="input-option">
+        <button id="botao-registro">Cadastro de Estoque</button>
+      </div>
+    </header>
+
+    <main>
+      <form>
+
+        <div class="input-data">
+          <label for="motor">Motor</label>
+          <input type="text" id="motor"/>
+        </div>
+
+        <div class="input-data">
+          <label for="cor">Cor</label>
+          <input type="text" id="cor"/>
+        </div>
+
+        <div class="input-data">
+          <label for="cambio">Cambio</label>
+          <input type="text" id="cambio"/>
+        </div>
+
+        <div class="input-data">
+          <label for="qtd_portas">Portas</label>
+          <input type="text" id="qtd_portas"/>
+          
+        </div>
+
+        <div class="input-data">
+          <label for="bancos">Bancos</label>
+          <input type="text" id="bancos"/>
+        </div>
+
+        <div class="input-data">
+          <label for="rodas">Rodas</label>
+          <input type="text" id="rodas"/>
+        </div>
+      
+        
+      </form>
+      
+
+      <aside id="botao-cadastrar-voltar">
+        <button id="botao-cadastrar">
+          Cadastrar
+        </button>
+        <button id="botao-voltar">Voltar</button>
+
+      </aside>
+      <footer id="lista-pecas">
+        
+      </footer>
+      
+
+    </main>
+  </body>
 </html>
