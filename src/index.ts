@@ -103,3 +103,4 @@ ipcMain.on("stockRegistration", (_:any, id: string) =>{
 ipcMain.on("trocaParaPrincipal", () =>{
   mainWindow.loadURL(HOMESCREEN_WEBPACK_ENTRY)
 })
+
