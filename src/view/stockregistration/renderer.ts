@@ -34,21 +34,7 @@ document.getElementById("botao-cadastrar")?.addEventListener("click", async (eve
     render()
 })
 
-document.getElementById("botao-voltar").addEventListener("click", async (event: MouseEvent) => {
-  event.preventDefault();
-  console.log("teste1");
-  (window as any).navegacaoAPI.paginaHome();
-  console.log("teste2")
-})
 
-
-
-document.getElementById("botao-deletar")?.addEventListener("click", async (event:MouseEvent) => {
-event.preventDefault();//previne eventos padroes
-console.log("deletou")
-
-  render()
-})
 
 window.onload = async () => {
   const veiculos = await (window as any).bancoAPI.findAll();
@@ -74,44 +60,19 @@ export default function render(){
   let aside = document.getElementById("lista-veiculo");
   aside.innerHTML = "";
 
-  for (var i = 0; i < listaVeiculos.length; i++) {
-      aside.innerHTML += `
-      <div class="card">
-      <img src="${listaVeiculos[i].getRodas()}" alt="">
-      <div class="dados">
-        <strong>${listaVeiculos[i].getMotor()}</strong>
-        <span>cor: ${listaVeiculos[i].getCor()}</span>
-        <span>cambio: ${listaVeiculos[i].getCambio()}</span>
-        <span>qtd_portas: R$${listaVeiculos[i].getQtd_portas()}</span>
-        <span>bancos: ${listaVeiculos[i].getBancos()}</span>
-      </div>
-      <div class="botao-card">
-        <button id="botao-ver" onclick="stockRegistration('${listaVeiculos[i].getId()}')">Ver</button>
-        <button id="botao-deletar" onclick="deletarVeiculo('${listaVeiculos[i].getId()}')">Deletar</button>
-      </div>
-    </div>
-      `;
-  }
 }
 
+//-------------------------------------------------------------------------------------------------------------------------------
+document.getElementById("botao-producao")?.addEventListener("click", async(event: MouseEvent) => {
+  (window as any).navegacaoAPI.production();
+})
 
+document.getElementById("botao-registro")?.addEventListener("click", async(event: MouseEvent) => {
+  (window as any).navegacaoAPI.stockRegistration();
+})
 
-function deletarVeiculo(id: string){
-  // let index = listaVeiculos.findIndex(veiculos => veiculos.getId() === id);
-  // listaVeiculos.splice(index, 1);
-
-  //chama a função deletar do preload no contesto de 'bancoAPI'
-  (window as any).bancoAPI.deletarVeiculo(id);
-
-  //filtra todos os itens com o id diferente do id que veio por parametro
-  listaVeiculos = listaVeiculos.filter(veiculos => veiculos.getId() !== id)
-  render();
-}
-
-function stockRegistration(id: string){
-  (window as any).navegacaoAPI.stockRegistration(id);
-
-}
-
-(window as any).stockRegistration = stockRegistration;
-(window as any).deletarVeiculo = deletarVeiculo;
+document.getElementById("botao-home")?.addEventListener("click", async(event: MouseEvent) => {
+  console.log("teste 1");
+  (window as any).navegacaoAPI.paginaHome();
+  console.log("teste 2");
+})

@@ -6,8 +6,21 @@
 
   </head>
   <body>
+    <h2>Cadastro de Estoque</h2>
     <header>
-      <h2>Cadastro de Estoque</h2>
+      
+        <div class="input-option">
+          <button id="botao-producao">>Produção</button>
+        </div>
+  
+        <div class="input-option">
+          <button id="botao-home">Tela Inicial</button>
+        </div>
+  
+        <div class="input-option">
+          <button id="botao-registro">Cadastro de Estoque</button>
+        </div>
+      
     </header>
 
     <main>
@@ -15,7 +28,7 @@
 
         <div class="input-data">
           <label for="motor">Motor</label>
-          <select name="combobox" id="motor">
+          <input type="text" id="motor"/>
           
 
           </select>
@@ -28,12 +41,15 @@
 
         <div class="input-data">
           <label for="cambio">Cambio</label>
-          <input type="number" id="cambio"/>
+          <input type="text" id="cambio"/>
         </div>
 
         <div class="input-data">
-          <label for="chassi">Chassi</label>
-          <input type="number" id="chassi"/>
+          <label for="qtd_portas">Portas</label>
+          <select name="combobox" id="qtd_portas">
+            <option value="">Duas Portas</option>
+            <option value="">Quatro Portas</option>
+          </select>
         </div>
 
         <div class="input-data">

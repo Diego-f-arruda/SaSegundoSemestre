@@ -8,8 +8,8 @@ export default class UsuarioRepository {
         if(!this.connection){
             this.connection = new Client({
                 host: "localhost",
-                port: 5432,
-                //port: 5433,
+                //port: 5432,
+                port: 5433,
                 database: 'SA',
                 user: 'postgres',
                 password: 'senai'

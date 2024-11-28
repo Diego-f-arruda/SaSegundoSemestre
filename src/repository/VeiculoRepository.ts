@@ -8,8 +8,8 @@ export default class VeiculoRepository {
         if(!this.connection){
             this.connection = new Client({
                 host: 'localhost',
-                port: 5432,
-                //port: 5433,
+                //port: 5432,
+                port: 5433,
                 database: 'SA',
                 user: 'postgres',
                 password: 'senai'
@@ -35,7 +35,7 @@ export default class VeiculoRepository {
     async findAll(){
         try {
             this.connection.connect();
-            const sql = "SELECT * FROM veiculo WHERE esta_ativo = $1"
+            const sql = "SELECT * FROM veiculo"
             const result = await this.connection.query(sql, [true]);
             if(result.rows.length > 0){
                 return result.rows;
@@ -67,18 +67,18 @@ export default class VeiculoRepository {
         }
     }
 
-    async delete(id: string){
-        try {
-            await this.connection.connect();
-            const sql = "UPDATE veiculo SET esta_ativo = $1 WHERE id = $2"
-            await this.connection.query(sql, [false, id]);
+    // async delete(id: string){
+    //     try {
+    //         await this.connection.connect();
+    //         const sql = "UPDATE veiculo  WHERE id = $1"
+    //         await this.connection.query(sql, [false, id]);
             
-        } catch (error) {
-            console.log(error)
-        }finally{
-            await this.connection.end;
-            this.connection = null;
-        }
-    }
+    //     } catch (error) {
+    //         console.log(error)
+    //     }finally{
+    //         await this.connection.end;
+    //         this.connection = null;
+    //     }
+    // }
 
 }
