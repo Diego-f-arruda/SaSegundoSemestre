@@ -155,3 +155,14 @@ border-bottom-left-radius: 16px;
 background-color: red;
 border-bottom-right-radius: 16px;
 }
+
+.input-data {
+
+  margin: 8px;
+
+}
+
+.input-option {
+  margin: 8px;
+  display: flex;
+}
