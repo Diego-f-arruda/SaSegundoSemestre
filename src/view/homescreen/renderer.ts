@@ -87,19 +87,6 @@ export default function render(){
 }
 
 
-
-function deletarVeiculo(id: string){
-  // let index = listaVeiculos.findIndex(veiculos => veiculos.getId() === id);
-  // listaVeiculos.splice(index, 1);
-
-  //chama a função deletar do preload no contesto de 'bancoAPI'
-  (window as any).bancoAPI.deletarVeiculo(id);
-
-  //filtra todos os itens com o id diferente do id que veio por parametro
-  listaVeiculos = listaVeiculos.filter(veiculos => veiculos.getId() !== id)
-  render();
-}
-
 function stockRegistration(id: string){
   (window as any).navegacaoAPI.stockRegistration(id);
 
@@ -113,10 +100,11 @@ document.getElementById("botao-registro")?.addEventListener("click", async(event
   (window as any).navegacaoAPI.stockRegistration();
 })
 
-document.getElementById("botao-voltar").addEventListener("click", async (event: MouseEvent) => {
+document.getElementById("botao-home")?.addEventListener("click", async(event: MouseEvent) => {
   event.preventDefault();
+  console.log("teste 1");
   (window as any).navegacaoAPI.paginaHome();
+  console.log("teste 2");
 })
 
 (window as any).stockRegistration = stockRegistration;
-(window as any).deletarVeiculo = deletarVeiculo;
