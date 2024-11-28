@@ -57,7 +57,7 @@ window.onload = async () => {
 
 
 export default function render(){
-  let aside = document.getElementById("lista-veiculo");
+  let aside = document.getElementById("lista-produto");
   aside.innerHTML = "";
 
 }
@@ -72,7 +72,24 @@ document.getElementById("botao-registro")?.addEventListener("click", async(event
 })
 
 document.getElementById("botao-home")?.addEventListener("click", async(event: MouseEvent) => {
-  console.log("teste 1");
   (window as any).navegacaoAPI.paginaHome();
-  console.log("teste 2");
+})
+
+document.getElementById("findAll")?.addEventListener("click", async(event: MouseEvent) => {
+  const produtos = await (window as any).bancoAPI.findAll();
+  console.log(produtos)
+  const div = document.getElementById("lista-produto");
+  div.innerHTML = "";
+
+  for(let i = 0; i < produtos.length; i++){
+    
+    `
+    <span>
+    
+
+
+    
+    `
+
+  }
 })

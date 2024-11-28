@@ -8,8 +8,8 @@ export default class VeiculoRepository {
         if(!this.connection){
             this.connection = new Client({
                 host: 'localhost',
-                //port: 5432,
-                port: 5433,
+                port: 5432,
+                //port: 5433,
                 database: 'SA',
                 user: 'postgres',
                 password: 'senai'
@@ -36,7 +36,7 @@ export default class VeiculoRepository {
         try {
             this.connection.connect();
             const sql = "SELECT * FROM veiculo"
-            const result = await this.connection.query(sql, [true]);
+            const result = await this.connection.query(sql);
             if(result.rows.length > 0){
                 return result.rows;
             }else{

@@ -12,7 +12,7 @@ export default class UsuarioRepository {
                 //port: 5433,
                 database: 'SA',
                 user: 'postgres',
-                password: 'postgres'
+                password: 'senai'
             });
         }
     }

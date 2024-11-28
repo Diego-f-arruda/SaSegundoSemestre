@@ -76,9 +76,14 @@ ipcMain.handle('findById', async (event: any, id: any) => {
   return await new VeiculoRepository().findById(id);
 })
 
-ipcMain.handle('deletarVeiculo', async(event:any, id: any) => {
-  await new VeiculoRepository().delete(id);
-})
+// ipcMain.handle('findByCategory', async (event: any, category: any) => {
+//   return await new VeiculoRepository().findByCategory();
+// })
+
+/*ipcMain.handle('criar_produto', async (event: any, produto: any) =>(
+  handle é pra ficar ouvindo,
+  parametros passados, quando for handle devesse passar o evento para evitar buscar a informação errada, pois ele puxa semprea primeira, e o que interessa é a segunda.  
+))*/
 
 ipcMain.handle('createUsuario', async (_: any, usuario: any) => {
   const { name, email, password, data_nascimento } = usuario;
