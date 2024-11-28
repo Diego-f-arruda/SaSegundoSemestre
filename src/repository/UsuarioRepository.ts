@@ -9,10 +9,10 @@ export default class UsuarioRepository {
             this.connection = new Client({
                 host: "localhost",
                 port: 5432,
-                //port: 5433,
+                //port: 5433, //Casa
                 database: 'SA',
                 user: 'postgres',
-                password: 'postgres'
+                password: 'senai'
             });
         }
     }
