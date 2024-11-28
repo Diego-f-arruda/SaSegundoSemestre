@@ -134,3 +134,7 @@ form button:hover{
   color: whitesmoke;
 }
 
+#grafico {
+  width: 500px;
+  height: 500px;
+}
