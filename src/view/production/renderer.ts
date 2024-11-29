@@ -1,6 +1,15 @@
-document.getElementById("botao-voltar").addEventListener("click", async (event: MouseEvent) => {
-    event.preventDefault();
-    console.log("teste1");
+
+
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
+document.getElementById("botao-producao")?.addEventListener("click", async(event: MouseEvent) => {
+    (window as any).navegacaoAPI.production();
+  })
+  
+  document.getElementById("botao-registro")?.addEventListener("click", async(event: MouseEvent) => {
+    (window as any).navegacaoAPI.stockRegistration();
+  })
+  
+  document.getElementById("botao-home")?.addEventListener("click", async(event: MouseEvent) => {
     (window as any).navegacaoAPI.paginaHome();
-    console.log("teste2")
-})
+  })
