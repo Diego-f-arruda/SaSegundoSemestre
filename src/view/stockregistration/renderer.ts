@@ -1,5 +1,6 @@
 import Veiculo from '../../entity/Veiculo';
 import './index.css';
+import '../geral.css'
 
 
 let listaVeiculos:Veiculo[] = [];

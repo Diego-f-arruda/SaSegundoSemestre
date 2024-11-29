@@ -1,6 +1,7 @@
 import Veiculo from '../../entity/Veiculo';
 import './index.css';
 import * as echarts from 'echarts'
+import '../geral.css'
 /*async findByCategory(){
   try {
       this.connection.connect();

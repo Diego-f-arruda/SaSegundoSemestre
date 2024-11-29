@@ -1,23 +1,4 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
-body {
-    background-color: #686A6C;
-}
-
-main {
-    display: flex;
-    flex-direction: row;
-    gap: 16px;
-    padding: 40px;
-    width: 80%;
-    margin: 150px auto;
-    background-color: #313131;
-    border-radius: 10px;
-}
 
 .login, .cadastro {
     width: 50%;

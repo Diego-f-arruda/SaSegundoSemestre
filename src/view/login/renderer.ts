@@ -1,6 +1,7 @@
 
 import { hash } from "bcrypt";
 import "./login.css"
+import '../geral.css'
 
 document.getElementById("cadastrar").addEventListener("click", async (event: MouseEvent) => {
     event.preventDefault();
