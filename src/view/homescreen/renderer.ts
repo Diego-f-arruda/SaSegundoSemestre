@@ -35,7 +35,7 @@ document.getElementById("botao-home")?.addEventListener("click", async(event: Mo
   (window as any).navegacaoAPI.paginaHome();
 })
 
-document.getElementById("buscar-amount-by-category").addEventListener("click", async(event: MouseEvent)) => {
+document.getElementById("buscar-amount-by-category").addEventListener("click", async(event: MouseEvent) => {
   const values = await (window as any).navegacaoAPI.findByCategory();
   console.log(values)
 
@@ -66,4 +66,4 @@ for(var i=0; i< values.length; i++){
     ]
   }
   grafico.setOption(option);
-}
+})
