@@ -2,25 +2,39 @@ import Veiculo from '../../entity/Veiculo';
 import './index.css';
 import * as echarts from 'echarts';
 import '../geral.css';
-/*async findByCategory(){
-  try {
-      this.connection.connect();
-      const sql = "SELECT * category, sum(amount) as qtd from product group by category order by desc"
-      const result = await this.connection.query(sql);
-      if(result.rows.length > 0){
-          return result.rows;
-      }else{
-          console.log("Não foi encontrado nenhum valor!");
-          return [];
-      }        
-  } catch (error) {
-      console.log(error);
-      return [];
-  }finally{
-      this.connection.end();
-      this.connection = null;
-  }*/
 
+document.getElementById("grafico").addEventListener("click", async (event: MouseEvent) => {
+  const values = await (window as any).productAPI.findAmountByCategory();
+  console.log(values);
+
+  const quantidade = [];
+  const categoria = [];
+
+  for(let i = 0; i < values.length; i++){
+      quantidade.push(values[i].amount);
+      categoria.push(values[i].category);
+  }
+
+  const div = document.getElementById("grafico") as HTMLDivElement;
+  const grafico = echarts.init(div);
+  const option = {
+      xAxis: {
+        type: 'category',
+        data: categoria
+      },
+      yAxis: {
+        type: 'value'
+      },
+      series: [
+        {
+          data: quantidade,
+          type: 'bar'
+        }
+      ]
+    };
+
+  grafico.setOption(option);
+})
 
 
 //-----------------------------------------------------------------------------------------------------------------------------------------------------
@@ -41,11 +55,11 @@ document.getElementById("buscar-amount-by-category").addEventListener("click", a
   console.log(values)
 
   const amount = []
-  const categories = []
+  const categoria = []
 
 for(let i=0; i< values.length; i++){
   amount.push(values[i].amount)
-  categories.push(values[i].category)
+  categoria.push(values[i].category)
 }
 
   const div = document.getElementById("grafico") as HTMLDivElement;
@@ -54,7 +68,7 @@ for(let i=0; i< values.length; i++){
   const option = {
     xAxis: {
       type: 'category',
-      data: categories
+      data: categoria
     },
     yAxis: {
       type: 'value'

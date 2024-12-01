@@ -63,7 +63,7 @@ export default function render(){
 
   listaVeiculos.forEach(veiculos => {
     div.innerHTML += `
-      <span>Motor: ${veiculos.getMotor()} || Cor: ${veiculos.getCor()} || Cambio: ${veiculos.getCambio()} || Quantidade de Portas: ${veiculos.getQtd_portas()} || Bancos: ${veiculos.getBancos()} || Rodas: ${veiculos.getRodas()}</span><br />
+      <span><strong>Motor: ${veiculos.getMotor()} || Cor: ${veiculos.getCor()} || Cambio: ${veiculos.getCambio()} || Quantidade de Portas: ${veiculos.getQtd_portas()} || Bancos: ${veiculos.getBancos()} || Rodas: ${veiculos.getRodas()}</span></strong><br>
     `;
   });
 

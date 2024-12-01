@@ -33,7 +33,7 @@
     height: 500px;
     width: 80vw;
     margin: 20px auto 0;
-    display: flex;
+    display: row;
     flex-direction: row; /* Isso vai alinhar os itens em uma linha */
     gap: 20px;
   }

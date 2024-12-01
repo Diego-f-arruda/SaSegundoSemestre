@@ -13,7 +13,7 @@ form {
 
 aside {
   width: 100%;
-  display: grid;
+  display: row;
   grid-template-columns: 1fr 1fr 1fr; /*cada 1fr significa 1 fracionario ou 1 coluna*/ 
   gap: 20px;
 }
