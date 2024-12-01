@@ -1,4 +1,23 @@
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #bdbdbd;
+}
+
+
+main {
+    height: 500px;
+    width: 80vw;
+    margin: 20px auto 0;
+    display: grid;
+    flex-direction: row;
+    column-gap: 20px;
+}
 
 .login, .cadastro {
     width: 50%;

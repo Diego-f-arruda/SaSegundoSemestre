@@ -1,21 +1,21 @@
 import Veiculo from '../../entity/Veiculo';
 import './index.css';
-import '../geral.css'
+import '../geral.css';
 
 
-let listaVeiculos:Veiculo[] = [];
-
+const listaVeiculos:Veiculo[] = [];
+let veiculos: any;
 
 //adiciona um ouvinte de evento(click do mouse)aos botoes o sinal de interrogação é pra evitar de ser nulo 
 document.getElementById("botao-cadastrar")?.addEventListener("click", async (event: MouseEvent) => {
     event.preventDefault();
 
-    let motor = document.getElementById('motor') as HTMLInputElement;
-    let cor = document.getElementById('cor') as HTMLInputElement;
-    let cambio = document.getElementById('cambio') as HTMLInputElement;
-    let qtd_portas = document.getElementById('qtd_portas') as HTMLInputElement;
-    let bancos = document.getElementById('bancos') as HTMLInputElement;
-    let rodas = document.getElementById('rodas') as HTMLInputElement;
+    const motor = document.getElementById('motor') as HTMLInputElement;
+    const cor = document.getElementById('cor') as HTMLInputElement;
+    const cambio = document.getElementById('cambio') as HTMLInputElement;
+    const qtd_portas = document.getElementById('qtd_portas') as HTMLInputElement;
+    const bancos = document.getElementById('bancos') as HTMLInputElement;
+    const rodas = document.getElementById('rodas') as HTMLInputElement;
 
 
     const novoCarro = new Veiculo(motor.value, cor.value, cambio.value, qtd_portas.value, bancos.value, rodas.value);
@@ -38,9 +38,9 @@ document.getElementById("botao-cadastrar")?.addEventListener("click", async (eve
 
 
 window.onload = async () => {
-  const veiculos = await (window as any).bancoAPI.findAll();
-  for(var i = 0; i < veiculos.length; i++){
-      const veiculo = new Veiculo(
+  veiculos = await (window as any).bancoAPI.findAll();
+  for(let i = 0; i < veiculos.length; i++){
+      veiculos = new Veiculo(
           veiculos[i].motor, 
           veiculos[i].cor,
           veiculos[i].cambio,
@@ -50,7 +50,7 @@ window.onload = async () => {
           veiculos[i].id
       );
 
-      listaVeiculos.push(veiculo);
+      listaVeiculos.push(veiculos);
   }
   render()
 
@@ -58,8 +58,14 @@ window.onload = async () => {
 
 
 export default function render(){
-  let aside = document.getElementById("lista-produto");
-  aside.innerHTML = "";
+  const div = document.getElementById("lista-produto");
+  div.innerHTML = "";
+
+  listaVeiculos.forEach(veiculos => {
+    div.innerHTML += `
+      <span>Motor: ${veiculos.getMotor()} || Cor: ${veiculos.getCor()} || Cambio: ${veiculos.getCambio()} || Quantidade de Portas: ${veiculos.getQtd_portas()} || Bancos: ${veiculos.getBancos()} || Rodas: ${veiculos.getRodas()}</span><br />
+    `;
+  });
 
 }
 

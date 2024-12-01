@@ -1,7 +1,7 @@
 import Veiculo from '../../entity/Veiculo';
 import './index.css';
-import * as echarts from 'echarts'
-import '../geral.css'
+import * as echarts from 'echarts';
+import '../geral.css';
 /*async findByCategory(){
   try {
       this.connection.connect();
@@ -43,7 +43,7 @@ document.getElementById("buscar-amount-by-category").addEventListener("click", a
   const amount = []
   const categories = []
 
-for(var i=0; i< values.length; i++){
+for(let i=0; i< values.length; i++){
   amount.push(values[i].amount)
   categories.push(values[i].category)
 }

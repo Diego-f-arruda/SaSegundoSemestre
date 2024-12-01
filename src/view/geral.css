@@ -10,17 +10,16 @@
   
   header {
     background-color: #bdbdbd;
-    height: 500px;
-    width: 60%;
-    margin: 20px auto 0;
-    height: fit-content;
+    width: 500px ;
+    margin: 20px auto;
+    height: 75px;
     border-radius: 16px;
     padding: 16px;
     box-shadow: 0 0 14px rgba(0, 0, 0, 0.2);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 10px;
+    
   }
   
   h2 {
@@ -34,8 +33,25 @@
     height: 500px;
     width: 80vw;
     margin: 20px auto 0;
-    display: grid;
-    flex-direction: row;
-    column-gap: 20px;
+    display: flex;
+    flex-direction: row; /* Isso vai alinhar os itens em uma linha */
+    gap: 20px;
+  }
+
+  #botao-producao, #botao-home, #botao-registro{
+
+  height: 48px;
+  font-size: 14px;
+  color: #000000;
+  border-radius: 30px;
+  outline: none;
+  border: none;
+  background-color: #a5a4a4;
+  padding: 0 10px;
+  }
+
+  #botao-producao:hover, #botao-home:hover, #botao-registro:hover {
+    background-color: #464646; 
+    color: #000000; 
   }
   

@@ -52,11 +52,12 @@ form .input-data input {
   padding: 0 10px;
 }
 
-form button{
-  width: 100%;
+#botao-cadastrar{
+  width: 115px;
+  height: 40px;
   background-color: #658545;
   color: whitesmoke;
-  font-size: 35px;
+  font-size: 15px;
   font-weight: bold;
   padding: 10px 20px;
   border-radius: 20px;
@@ -64,7 +65,7 @@ form button{
   cursor: pointer;
 }
 
-form button:hover{
+#botao-cadastrar:hover{
   background-color: #3f552a;
 }
 
@@ -113,15 +114,6 @@ border-top-right-radius: 10px;
   color: whitesmoke;
 }
 
-#botao-ver{
-background-color: chartreuse;
-border-bottom-left-radius: 16px;
-}
-
-#botao-deletar{
-background-color: red;
-border-bottom-right-radius: 16px;
-}
 
 .input-data {
 

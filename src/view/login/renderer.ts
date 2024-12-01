@@ -1,16 +1,15 @@
 
 import { hash } from "bcrypt";
-import "./login.css"
-import '../geral.css'
+import "./login.css";
 
 document.getElementById("cadastrar").addEventListener("click", async (event: MouseEvent) => {
     event.preventDefault();
 
-    let nome = document.getElementById("name") as HTMLInputElement;
-    let dataNascimento = document.getElementById("data_nascimento") as HTMLInputElement;
-    let email = document.getElementById("email") as HTMLInputElement;
-    let password = document.getElementById("password") as HTMLInputElement;
-    let passwordConfirmation = document.getElementById("password_confirmation") as HTMLInputElement;
+    const nome = document.getElementById("name") as HTMLInputElement;
+    const dataNascimento = document.getElementById("data_nascimento") as HTMLInputElement;
+    const email = document.getElementById("email") as HTMLInputElement;
+    const password = document.getElementById("password") as HTMLInputElement;
+    const passwordConfirmation = document.getElementById("password_confirmation") as HTMLInputElement;
 
     
     // VERIFICAR SE A SENHA CORRESPONDE
@@ -24,7 +23,7 @@ document.getElementById("cadastrar").addEventListener("click", async (event: Mou
       return;
     }
 
-    let usuario = {
+    const usuario = {
       name: nome.value,
       email: email.value,
       password: password.value,
@@ -40,8 +39,8 @@ document.getElementById("acessar").addEventListener("click", async (event: Mouse
   event.preventDefault();
   
   
-  let email = document.getElementById("email_login") as HTMLInputElement;
-  let password = document.getElementById("password_login") as HTMLInputElement;
+  const email = document.getElementById("email_login") as HTMLInputElement;
+  const password = document.getElementById("password_login") as HTMLInputElement;
   
   const usuario = await (window as any).bancoAPI.findByEmail(email.value)
   if(!usuario){
