@@ -6,26 +6,45 @@
     <title>Document</title>
 </head>
 <body>
-    <h2>Cadastro de Estoque</h2>
+    <h1>Cadastro de Veículo</h1>
     <header>
     
-        <div class="input-option">
-            <button id="botao-producao">Produção</button>
-        </div>
-
-        <div class="input-option">
-            <button id="botao-home">Tela Inicial</button>
-        </div>
-
-        <div class="input-option">
-            <button id="botao-registro">Cadastro de Estoque</button>
-        </div>
-    
-    </header>
-
-    <div class="container">
-        <select id="selMotor">Selecione a opção a ser adicionada</select>
+    <div class="input-option">
+        <button id="botao-producao">Produção</button>
     </div>
+  
+    <div class="input-option">
+        <button id="botao-home">Tela Inicial</button>
+    </div>
+  
+    <div class="input-option">
+        <button id="botao-registro">Cadastro de Estoque</button>
+    </div>
+      
+    </header>
+    <aside id="form-veiculo">
+        <label for="modelo">Modelo:</label>
+        <input type="text" id="modelo" required>
+        <br>
+
+        <label for="fabricante">Fabricante:</label>
+        <input type="text" id="fabricante" required>
+        <br>
+
+        <label for="placa">Placa:</label>
+        <input type="text" id="placa" required>
+        <br>
+
+        <label for="anoFabricacao">Ano de Fabricação:</label>
+        <input type="number" id="anoFabricacao" required>
+        <br>
+
+        <button id="botao-cadastrar-veiculo" type="submit">Cadastrar Veículo</button>
+    </aside>
+
+    <h3>Selecione os Acessórios:</h3>
+    <div id="lista-acessorios"></div>
+
 
 </body>
 </html>

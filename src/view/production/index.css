@@ -15,7 +15,7 @@ form {
 aside {
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr; /*cada 1fr significa 1 fracionario ou 1 coluna*/ 
+  grid-template-columns: 1fr 1fr 1fr; 
   gap: 20px;
 }
 
@@ -73,7 +73,7 @@ form button:hover{
   background-color: #658545;
 border-radius: 20px;
 
-height: fit-content; /* se ajusta ao conteudo*/
+height: fit-content;
 display: flex;
 flex-direction: column;
 }

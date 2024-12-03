@@ -24,39 +24,29 @@
     </header>
 
     <main>
-      <form>
+      <form id="formulario-estoque">
+        <label for="nome">Nome do Item:</label>
+        <input type="text" id="nome" name="nome" required>
 
-        <div class="input-data">
-          <label for="motor">Motor</label>
-          <input type="text" id="motor">
-        </div>
+        <label for="fabricante">Fabricante:</label>
+        <input type="text" id="fabricante" name="fabricante" required>
 
-        <div class="input-data">
-          <label for="cor">Cor</label>
-          <input type="text" id="cor">
-        </div>
+        <label for="tipo">Tipo:</label>
+        <select id="tipo" name="tipo" required>
+            <option value="interna">Interna</option>
+            <option value="externa">Externa</option>
+        </select>
 
-        <div class="input-data">
-          <label for="cambio">Cambio</label>
-          <input type="text" id="cambio">
-        </div>
+        <label for="quantidade">Quantidade:</label>
+        <input type="number" id="quantidade" name="quantidade" min="0" required>
 
-        <div class="input-data">
-          <label for="qtd_portas">Portas</label>
-          <input type="text" id="qtd_portas">
-        </div>
+        <label for="data_entrada">Data de Entrada:</label>
+        <input type="date" id="data_entrada" name="data_entrada" required>
 
-        <div class="input-data">
-          <label for="bancos">Bancos</label>
-          <input type="text" id="bancos">
-        </div>
+        <label for="custo">Custo (R$):</label>
+        <input type="number" id="custo" name="custo" min="0" required>
 
-        <div class="input-data">
-          <label for="rodas">Rodas</label>
-          <input type="" id="rodas">
-        </div>
-
-      </form> <br/>
+    </form>
 
       <button id="botao-cadastrar">
         Cadastrar

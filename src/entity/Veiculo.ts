@@ -2,48 +2,53 @@ import { v4 as uuid } from "uuid";
 
 export default class Veiculo {
     private id: string;
-    private motor: string;
-    private cor: string;
-    private cambio: string;
-    private qtd_portas: string;
-    private bancos: string;
-    private rodas: string
+    private modelo: string;
+    private fabricante: string;
+    private placa: string;
+    private anoFabricacao: number;
+    private acessorios: string[];
 
-    constructor(motor: string, cor: string, cambio: string, qtd_portas: string, bancos: string, rodas: string, id?:string){
-        this.id = id === undefined ? uuid() : id;  // dessa forma ja valida se ja foi feito um id 
-        this.motor = motor;
-        this.cor = cor;
-        this.cambio = cambio;
-        this.qtd_portas = qtd_portas;
-        this.bancos = bancos;
-        this.rodas = rodas;
+    constructor(modelo: string, fabricante: string, placa: string, anoFabricacao: number, id?: string) {
+        this.id = id || uuid();
+        this.modelo = modelo;
+        this.fabricante = fabricante;
+        this.placa = placa;
+        this.anoFabricacao = anoFabricacao;
+        this.acessorios = []
     }
-    public getId(){
+
+    public getId() {
         return this.id;
     }
 
-    public getMotor(){
-        return this.motor;
+    setId(id: string) {
+        this.id = id;
     }
 
-    public getCor(){
-        return this.cor;
+    public getModelo() {
+        return this.modelo;
     }
 
-    public getCambio(){
-        return this.cambio;
+    public getFabricante() {
+        return this.fabricante;
     }
 
-    public getQtd_portas(){
-        return this.qtd_portas;
+    public getPlaca() {
+        return this.placa;
     }
 
-    public getBancos(){
-        return this.bancos;
+    public getAnoFabricacao() {
+        return this.anoFabricacao;
     }
 
-    public getRodas(){
-        return this.rodas;
+    public getAcessorios() {
+        return this.acessorios;
+    }
+
+    public setAcessorios(acessorioId: string) {
+        if (!this.acessorios.includes(acessorioId)) {
+            this.acessorios.push(acessorioId);
+        }
     }
 
 }

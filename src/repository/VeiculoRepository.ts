@@ -8,8 +8,8 @@ export default class VeiculoRepository {
         if(!this.connection){
             this.connection = new Client({
                 host: 'localhost',
-                //port: 5432,
-                port: 5433,
+                port: 5432,
+                //port: 5433,
                 database: 'SA',
                 user: 'postgres',
                 password: 'senai'
@@ -18,12 +18,16 @@ export default class VeiculoRepository {
     }
 
     async save(veiculo: Veiculo){
-
         try {
             await this.connection.connect()
-            const sql = "INSERT INTO veiculo (id, motor, cor, cambio, qtd_portas, bancos, rodas) VALUES ($1, $2, $3, $4, $5, $6, $7)";
-            const values = [veiculo.getId(), veiculo.getMotor(), veiculo.getCor(), veiculo.getCambio(), veiculo.getQtd_portas(), veiculo.getBancos(), veiculo.getRodas()];
-            await this.connection.query(sql, values);            
+            const sql = "INSERT INTO veiculo (modelo, fabricante, placa, ano_fabricacao) VALUES ($1, $2, $3, $4) RETURNING id";
+            const values = [veiculo.getModelo(), veiculo.getFabricante(), veiculo.getPlaca(), veiculo.getAnoFabricacao()];
+            const result = await this.connection.query(sql, values); 
+            const id = result.rows[0].id;
+
+            veiculo.setId(id);
+
+            return veiculo;
         } catch (error) {
             console.log(error)
         }finally{
@@ -32,7 +36,14 @@ export default class VeiculoRepository {
         }
     }
 
-    async findAll(){
+    
+
+    async estoqueDoVeiculo(veiculoId: string, estoqueId: string) {
+        const sql = "INSERT INTO veiculo_estoque (veiculo_id, estoque_id) VALUES ($1, $2)";
+        await this.connection.query(sql, [veiculoId, estoqueId]);
+    }
+
+    async findAllVeiculo(){
         try {
             this.connection.connect();
             const sql = "SELECT * FROM veiculo"
@@ -51,34 +62,4 @@ export default class VeiculoRepository {
             this.connection = null;
         }
     }
-
-    async findById(id: string){
-        try {
-            await this.connection.connect();
-            const sql = "SELECT * FROM veiculo WHERE id = $1"
-            // const values = [id];
-            const result = await this.connection.query(sql, [id]);
-            return result.rows[0];
-        } catch (error) {
-            console.log(error)
-        }finally{
-            await this.connection.end;
-            this.connection = null;
-        }
-    }
-
-    // async delete(id: string){
-    //     try {
-    //         await this.connection.connect();
-    //         const sql = "UPDATE veiculo  WHERE id = $1"
-    //         await this.connection.query(sql, [false, id]);
-            
-    //     } catch (error) {
-    //         console.log(error)
-    //     }finally{
-    //         await this.connection.end;
-    //         this.connection = null;
-    //     }
-    // }
-
 }

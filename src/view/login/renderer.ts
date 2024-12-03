@@ -12,12 +12,10 @@ document.getElementById("cadastrar").addEventListener("click", async (event: Mou
     const passwordConfirmation = document.getElementById("password_confirmation") as HTMLInputElement;
 
     
-    // VERIFICAR SE A SENHA CORRESPONDE
     if(password.value !== passwordConfirmation.value){
         return;
     }
 
-    // VERIFICAR SE O USUÁRIO COM E-MAIL JÁ EXISTE
     const usuarioExiste = await (window as any).bancoAPI.findByEmail(email.value);
     if(usuarioExiste?.id){
       return;

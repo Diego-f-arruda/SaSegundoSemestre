@@ -1,127 +1,36 @@
 
 form {
-  background-color: #bdbdbd;
-  height: fit-content;
-  border-radius: 16px;
-  padding: 16px;
-  box-shadow: 0 0 14px rgba(0, 0, 0, 0.2);
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  margin: 10px;
-}
-
-aside {
-  width: 100%;
-  display: row;
-  grid-template-columns: 1fr 1fr 1fr; /*cada 1fr significa 1 fracionario ou 1 coluna*/ 
-  gap: 20px;
-}
-
-form h2 {
-  font-size: 25px;
-  font-weight: bold;
-  font-family: cursive;
-  text-align: center;
-  margin-bottom: 15px;
-}
-
-form .input-data {
   display: flex;
   flex-direction: column;
-  row-gap: 3px;
-  margin-bottom: 20px;
 }
 
-
-form .input-data label {
-  color: #333333;
-  font-size: 14px;
+label {
+  margin-top: 16px;
   font-weight: bold;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
-form .input-data input {
-  height: 48px;
-  font-size: 14px;
-  color: #666666;
-  border-radius: 8px;
+input, select, button {
+  margin-top: 8px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+button {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-top: 40px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+input:focus, select:focus, button:focus {
   outline: none;
-  border: 2px solid #999999;
-  background-color: #f0f0f0;
-  padding: 0 10px;
-}
-
-#botao-cadastrar{
-  width: 115px;
-  height: 40px;
-  background-color: #658545;
-  color: whitesmoke;
-  font-size: 15px;
-  font-weight: bold;
-  padding: 10px 20px;
-  border-radius: 20px;
-  border: none;
-  cursor: pointer;
-}
-
-#botao-cadastrar:hover{
-  background-color: #3f552a;
-}
-
-.card{
-  background-color: #658545;
-border-radius: 20px;
-
-height: fit-content; /* se ajusta ao conteudo*/
-display: flex;
-flex-direction: column;
-}
-
-.card img{
-width: 100%;
-border-top-left-radius: 10px;
-border-top-right-radius: 10px;
-}
-
-.card .dados{
-  display: flex;
-  flex-direction: column;
-  padding: 15px;
-}
-
-.card .dados strong{
-  font-size: 20px;
-  font-family: cursive;
-  font-weight: bold;
-}
-
-.card .dados span{
-  font-family: cursive;
-  font-size: 20px;
-}
-
-.card .botao-card{
-  display: flex;
-  flex-direction: row;
-}
-
-.card .botao-card button{
-  flex: 1;
-  
-  border: none;
-  cursor: pointer;
-  color: whitesmoke;
-}
-
-
-.input-data {
-
-  margin: 8px;
-
-}
-
-.input-option {
-  margin: 8px;
-  display: flex;
+  border-color: #007BFF;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }

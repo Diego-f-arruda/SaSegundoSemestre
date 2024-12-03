@@ -1,72 +1,95 @@
-import Veiculo from '../../entity/Veiculo';
+import Estoque, { TipoUso } from '../../entity/Estoque';
 import './index.css';
 import '../geral.css';
 
 
-const listaVeiculos:Veiculo[] = [];
-let veiculos: any;
+const listaEstoque:Estoque[] = [];
+
 
 //adiciona um ouvinte de evento(click do mouse)aos botoes o sinal de interrogação é pra evitar de ser nulo 
-document.getElementById("botao-cadastrar")?.addEventListener("click", async (event: MouseEvent) => {
-    event.preventDefault();
+document.getElementById('botao-cadastrar')?.addEventListener('click', async (event: MouseEvent) => {
+  event.preventDefault();
 
-    const motor = document.getElementById('motor') as HTMLInputElement;
-    const cor = document.getElementById('cor') as HTMLInputElement;
-    const cambio = document.getElementById('cambio') as HTMLInputElement;
-    const qtd_portas = document.getElementById('qtd_portas') as HTMLInputElement;
-    const bancos = document.getElementById('bancos') as HTMLInputElement;
-    const rodas = document.getElementById('rodas') as HTMLInputElement;
+  const nome = (document.getElementById('nome') as HTMLInputElement).value;
+  const fabricante = (document.getElementById('fabricante') as HTMLInputElement).value;
+  const tipo = (document.getElementById('tipo') as HTMLSelectElement).value as keyof typeof TipoUso;
+  const quantidade = Number((document.getElementById('quantidade') as HTMLInputElement).value);
+  const data_entrada = (document.getElementById('data_entrada') as HTMLInputElement).value;
+  const custo = parseFloat((document.getElementById('custo') as HTMLInputElement).value);
+
+  if (!nome || !fabricante || !tipo || !quantidade || !data_entrada || !custo) {
+    console.log("Preencha todos os campos corretamente!");
+    return;
+  }
+
+  const tipoUso = TipoUso[tipo];
+
+    const novoItem = new Estoque(nome, fabricante, tipoUso, quantidade, new Date(data_entrada), custo);
+
+    listaEstoque.push(novoItem);
+    (window as any).bancoAPI.createEstoque(novoItem); 
 
 
-    const novoCarro = new Veiculo(motor.value, cor.value, cambio.value, qtd_portas.value, bancos.value, rodas.value);
-
-    listaVeiculos.push(novoCarro);
-    (window as any).bancoAPI.createVeiculo(novoCarro); 
-
-
-    motor.value = "";
-    cor.value = "";
-    cambio.value = "";
-    qtd_portas.value = "";
-    bancos.value = "";
-    rodas.value = "";
-
-    //render abaixo
     render()
 })
 
-
-
-window.onload = async () => {
-  veiculos = await (window as any).bancoAPI.findAll();
-  for(let i = 0; i < veiculos.length; i++){
-      veiculos = new Veiculo(
-          veiculos[i].motor, 
-          veiculos[i].cor,
-          veiculos[i].cambio,
-          veiculos[i].qtd_portas,
-          veiculos[i].bancos,
-          veiculos[i].rodas,
-          veiculos[i].id
+export async function carregarEstoque() {
+  const produtos = await (window as any).bancoAPI.findAll();
+  listaEstoque.length = 0; 
+  
+    produtos.forEach((p: any) => {
+      const item = new Estoque(
+        p.nome,
+        p.fabricante,
+        p.tipo,
+        p.quantidade,
+        new Date(p.data_entrada),
+        p.custo,
+        p.id
       );
-
-      listaVeiculos.push(veiculos);
-  }
-  render()
-
+      listaEstoque.push(item);
+    });
+  
 }
+
+
+window.onload = carregarEstoque;
 
 
 export default function render(){
   const div = document.getElementById("lista-produto");
   div.innerHTML = "";
 
-  listaVeiculos.forEach(veiculos => {
-    div.innerHTML += `
-      <span><strong>Motor: ${veiculos.getMotor()} || Cor: ${veiculos.getCor()} || Cambio: ${veiculos.getCambio()} || Quantidade de Portas: ${veiculos.getQtd_portas()} || Bancos: ${veiculos.getBancos()} || Rodas: ${veiculos.getRodas()}</span></strong><br>
-    `;
+  listaEstoque.forEach((item) => {
+    const span = document.createElement("span");
+    span.innerHTML = `
+    <table>
+      <thead>
+        <tr>
+          <th>Nome  </th>
+          <th>||Fabricante</th>
+          <th>||Tipo</th>
+          <th>||Quantidade</th>
+          <th>||Data de Entrada</th>
+          <th>||Custo</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${listaEstoque.map(item => `
+          <tr>
+            <td>${item.getNome()}</td>
+            <td>||${item.getFabricante()}</td>
+            <td>||${item.getTipo()}</td>
+            <td>||${item.getQuantidade()}</td>
+            <td>||${item.getDataEntrada().toLocaleDateString()}</td>
+            <td>||R$ ${item.getCusto()}</td>
+          </tr>
+        `).join('')}
+      </tbody>
+    </table>
+  `;
+    div.appendChild(span);
   });
-
 }
 
 //-------------------------------------------------------------------------------------------------------------------------------
@@ -82,21 +105,4 @@ document.getElementById("botao-home")?.addEventListener("click", async(event: Mo
   (window as any).navegacaoAPI.paginaHome();
 })
 
-document.getElementById("findAll")?.addEventListener("click", async(event: MouseEvent) => {
-  const produtos = await (window as any).bancoAPI.findAll();
-  console.log(produtos)
-  const div = document.getElementById("lista-produto");
-  div.innerHTML = "";
-
-  for(let i = 0; i < produtos.length; i++){
-    
-    `
-    <span>
-    
-
-
-    
-    `
-
-  }
-})
+document.getElementById("findAll")?.addEventListener("click", carregarEstoque)
